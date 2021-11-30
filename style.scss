@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel&display=swap');
+
+
+body{
+    background-color: black;
+    color: white;
+    font-family: 'Martel', serif;
+    .hamburger{
+        position:fixed;
+        left:0;
+        top:0;
+        padding:25px;
+        #menuToggle{
+          display: block;
+          position: relative;
+          // top: 50px;
+          // left:50px;
+          max-width:calc(100% - 50px);
+          // padding-left: 50px;
+          z-index: 1;
+          -webkit-user-select: none;
+          user-select: none;
+          a{
+            &:hover{
+              color: tomato;
+            }   
+          }
+          span{
+            display: block;
+            width: 33px;
+            height: 4px;
+            margin-bottom: 5px;
+            position: relative;
+            background: darkgrey;
+            border-radius: 3px;
+            z-index: 1;
+            transform-origin: 4px 0px;
+            transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+            background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+            opacity 0.55s ease;
+            &:first-child{
+              transform-origin: 0% 0%;
+            }
+            &:nth-last-child(2){
+              transform-origin: 0% 100%;
+            }
+          }
+          input{
+            display: block;
+            width: 40px;
+            height: 32px;
+            position: absolute;
+            top: -7px;
+            left: -5px;
+            cursor: pointer;
+            opacity: 0; /* hide this */
+            z-index: 2; /* and place it over the hamburger */
+            -webkit-touch-callout: none; 
+            &:checked ~ ul{transform: none;}
+            &:checked ~ span:nth-last-child(2){
+              transform: rotate(-45deg) translate(0, -1px);
+            }
+            &:checked ~ span:nth-last-child(3){
+              opacity: 0;
+              transform: rotate(0deg) scale(0.2, 0.2);
+            }
+            &:checked ~ span {
+              opacity: 1;
+              transform: rotate(45deg) translate(-2px, -1px);
+              background: #232323;
+            }
+          }
+        }
+        #menu{
+          position: absolute;
+          width: 300px;
+          height:100vh;
+          margin: -100px 0 0 -50px;
+          padding: 50px;
+          padding-top: 125px;
+          background: rgb(7, 7, 7);
+          border: white solid 1px;
+          list-style-type: none;
+          -webkit-font-smoothing: antialiased;
+          transform-origin: 0% 0%;
+          transform: translate(-100%, 0);
+          transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+          text-decoration: none;
+          li{
+            padding: 10px 0;
+            font-size: 22px;
+            color: white;
+            text-decoration: none;
+          }
+        }
+      }
+          .hero{
+              min-width: 80vw;
+              min-height: 80vh;
+              border: white dashed 1px;
+              margin: 5%;
+          }
+
+
+
+          .intro-two-col{
+              display:flex;
+              color: white;
+              flex-direction: row;
+              align-content: flex-start;
+
+              .intro-left{
+                font-size: xx-large;
+                font-weight: 900;
+                flex:1;
+                margin-left: 10%;
+            }
+  
+            .opis-intro{
+                flex: 5;
+                font-size: 5vh;
+                margin: 5%;
+            }
+          }
+
+          .services{
+
+            .services-title{
+                @extend .intro-left;
+                font-size: xx-large;
+                font-weight: 900;
+                flex:1;
+                margin-left: 10%;
+                margin-top: 15%;
+            }
+
+            .services-examples{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 5%;
+                div{
+                    border: 1px white ridge;
+                    font-size: 1.5rem;
+                    border-radius: 10px;
+                    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+                    &:hover{
+                        background-color: whitesmoke;
+                        color: black;
+                    }
+                }
+
+
+            }
+            
+
+          }
+
+
+
+
+}
